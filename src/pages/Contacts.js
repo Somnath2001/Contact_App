@@ -32,8 +32,10 @@ const Contacts = () => {
   if (isLoading) {
     return (
       <div className="Center">
-        <Spinner color="primary" /><br/>
-        <div className="text-primary">Loading...</div>
+        <button class="btn btn-primary" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  Loading...
+</button>
       </div>
     );
   }

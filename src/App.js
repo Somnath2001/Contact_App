@@ -58,7 +58,7 @@ const App = () => {
       payload: true
     });
 
-    const contactsRef = await firebase.database().ref("/contacts");
+    const contactsRef = await firebase.database().ref("/contacts")
     contactsRef.on("value", snapshot => {
       dispatch({
         type: SET_CONTACT,

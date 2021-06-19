@@ -200,7 +200,10 @@ const AddContact = () => {
           <Form onSubmit={handleSubmit}>
             <div className="text-center">
               {isUploading? (
-                <Spinner type="grow" color="primary" />
+               <button class="btn btn-primary" type="button" disabled>
+               <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+               <span class="sr-only">Loading...</span>
+             </button>
               ) : (
                 <div>
                   <label htmlFor="imagepicker" className="">
@@ -218,6 +221,7 @@ const AddContact = () => {
                 </div>
               )}
             </div>
+            <br/>
 
             <FormGroup>
               <Input
