@@ -15,7 +15,8 @@ import "./App.css";
 
 // firebase stuffs
 //TODO: DONE import firebase config and firebase database
-import { firebaseConfig } from "./utils/config";
+
+import { firebaseConfig} from "./utils/config";
 import firebase from "firebase/app";
 import "firebase/database";
 import "firebase/storage";
@@ -35,7 +36,10 @@ import { ContactContext } from "./context/Context";
 import { SET_CONTACT, SET_LOADING } from "./context/action.types";
 
 //initlizeing firebase app with the firebase config which are in ./utils/firebaseConfig
-//TODO:DONE  initialize FIREBASE
+//TODO:DONE  initialize FIREBASE 
+
+ 
+
 firebase.initializeApp(firebaseConfig);
 
 // first state to provide in react reducer
@@ -57,7 +61,14 @@ const App = () => {
       type: SET_LOADING,
       payload: true
     });
-
+console.log(process.env.REACT_APP_FIREBASE_API_KEY)
+console.log(process.env.REACT_APP_FIREBASE_AUTH_DOMAIN)
+console.log( process.env.REACT_APP_FIREBASE_DATABASE_URL)
+console.log(process.env.REACT_APP_FIREBASE_PROJECT_ID)
+console.log(process.env.REACT_APP_FIREBASE_STORAGEBUCKET)
+console.log(process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID)
+console.log(process.env.REACT_APP_FIREBASE_APP_ID)
+console.log(process.env.REACT_APP_FIREBASE_MEASUREMENT_ID)
     const contactsRef = await firebase.database().ref("/contacts")
     contactsRef.on("value", snapshot => {
       dispatch({
