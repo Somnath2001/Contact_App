@@ -1,12 +1,12 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 
-import { Container, Col, Row } from "reactstrap";
+import { Container} from "reactstrap";
 
 // react-router-dom3
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // react toastify stuffs
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // bootstrap css
@@ -35,6 +35,8 @@ import reducer from "./context/reducer";
 import { ContactContext } from "./context/Context";
 import { SET_CONTACT, SET_LOADING } from "./context/action.types";
 
+
+
 //initlizeing firebase app with the firebase config which are in ./utils/firebaseConfig
 //TODO:DONE  initialize FIREBASE 
 
@@ -51,6 +53,7 @@ const initialState = {
   isLoading: false
 };
 
+
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -61,14 +64,15 @@ const App = () => {
       type: SET_LOADING,
       payload: true
     });
-console.log(process.env.REACT_APP_FIREBASE_API_KEY)
-console.log(process.env.REACT_APP_FIREBASE_AUTH_DOMAIN)
-console.log( process.env.REACT_APP_FIREBASE_DATABASE_URL)
-console.log(process.env.REACT_APP_FIREBASE_PROJECT_ID)
-console.log(process.env.REACT_APP_FIREBASE_STORAGEBUCKET)
-console.log(process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID)
-console.log(process.env.REACT_APP_FIREBASE_APP_ID)
-console.log(process.env.REACT_APP_FIREBASE_MEASUREMENT_ID)
+// console.log(process.env.REACT_APP_FIREBASE_API_KEY)
+// console.log(process.env.REACT_APP_FIREBASE_AUTH_DOMAIN)
+// console.log( process.env.REACT_APP_FIREBASE_DATABASE_URL)
+// console.log(process.env.REACT_APP_FIREBASE_PROJECT_ID)
+// console.log(process.env.REACT_APP_FIREBASE_STORAGEBUCKET)
+// console.log(process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID)
+// console.log(process.env.REACT_APP_FIREBASE_APP_ID)
+// console.log(process.env.REACT_APP_FIREBASE_MEASUREMENT_ID)
+
     const contactsRef = await firebase.database().ref("/contacts")
     contactsRef.on("value", snapshot => {
       dispatch({
@@ -104,6 +108,7 @@ console.log(process.env.REACT_APP_FIREBASE_MEASUREMENT_ID)
         <Footer />
       </ContactContext.Provider>
     </Router>
+
   );
 };
 

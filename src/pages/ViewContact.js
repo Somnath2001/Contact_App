@@ -21,9 +21,9 @@ const ViewContact = () => {
 
   return (
     <Container>
-      <Row className="mt-5 mb-5">
+      <Row className="mt-5 mb-4">
         <Col md="5" className="offset-md-3">
-          <Card className="pt-3 pb-5">
+          <Card className="pt-3 pb-3">
             <CardBody className="text-center ">
               <img
                 height="150"
@@ -39,6 +39,7 @@ const ViewContact = () => {
                   <FaPhone className="mr-2" />
                   {contact?.phoneNumber}
                 </h3>
+                <hr />
               </CardSubtitle>
               <a
                 className="btn btn-primary btn-block"
@@ -48,7 +49,8 @@ const ViewContact = () => {
                 <FaEnvelope className="icon mr-2" />
                 {contact?.email}
               </a>
-
+                  <hr />
+                  <br />
               <a
                 className="btn btn-primary btn-block"
                 target="_blank"
